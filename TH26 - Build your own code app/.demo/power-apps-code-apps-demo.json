@@ -31,7 +31,7 @@
       "moves": [
         {
           "action": "executeTerminalCommand",
-          "command": "npx degit github:microsoft/PowerAppsCodeApps/templates/vite my-first-code-app",
+          "command": "npx degit github:microsoft/PowerAppsCodeApps/templates/vite {CODE_APP_FOLDER_NAME}",
           "terminalId": "Create your first Code App"
         }
       ]
@@ -42,7 +42,7 @@
       "moves": [
         {
           "action": "executeTerminalCommand",
-          "command": "cd my-first-code-app",
+          "command": "cd {CODE_APP_FOLDER_NAME}",
           "terminalId": "Create your first Code App"
         },
         {
@@ -55,6 +55,7 @@
     {
       "id": "scene-mpqj01on-84f3",
       "title": "Initialize the Code App",
+      "description": "TODO: pac code init --displayName \"My first code app\"",
       "moves": [
         {
           "action": "executeTerminalCommand",
@@ -69,7 +70,7 @@
       "moves": [
         {
           "action": "executeTerminalCommand",
-          "command": "cd my-first-code-app",
+          "command": "cd {CODE_APP_FOLDER_NAME}",
           "terminalId": "Test the app locally"
         },
         {
@@ -116,7 +117,7 @@
       "moves": [
         {
           "action": "executeTerminalCommand",
-          "command": "pac code add-data-source --apiid shared_sharepointonline --connectionId \"dbe5675d1a4f478397199faa6eb28ccf\" --dataset \"@envvar:new_SharePointSiteURL\" --table \"@envvar:new_SharePointListTitle\"",
+          "command": "pac code add-data-source --apiid shared_sharepointonline --connectionId \"{SHAREPOINT_CONNECTION_ID}\" --dataset \"@envvar:{SHAREPOINT_URL_ENV_VAR}\" --table \"@envvar:{SHAREPOINT_LIST_NAME_ENV_VAR}\"",
           "terminalId": "Create your first Code App",
           "autoExecute": true
         },
@@ -154,7 +155,7 @@
       "moves": [
         {
           "action": "executeTerminalCommand",
-          "command": "pac code add-data-source -a \"shared_approvals\" -c \"6bb0d099753947be9d2c4be5d255c51c\"",
+          "command": "pac code add-data-source -a \"shared_approvals\" -c \"{APPROVALS_CONNECTION_ID}\"",
           "autoExecute": true,
           "terminalId": "Create your first Code App"
         },
