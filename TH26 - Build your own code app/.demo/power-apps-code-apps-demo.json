@@ -1,0 +1,229 @@
+{
+  "$schema": "https://demotime.show/demo-time.schema.json",
+  "title": "Power Apps Code Apps - Complete Demo",
+  "description": "A comprehensive walkthrough of building Power Apps using TypeScript, React, and the Power Platform SDK",
+  "version": 3,
+  "scenes": [
+    {
+      "id": "scene-mpqj01on-84f0",
+      "title": "Verify Installation",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "node --version",
+          "terminalId": "Verify installation"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm --version",
+          "terminalId": "Verify installation"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "pac help",
+          "terminalId": "Verify installation"
+        }
+      ]
+    },
+    {
+      "id": "scene-mpqj01on-84f1",
+      "title": "Clone existing code app template",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx degit github:microsoft/PowerAppsCodeApps/templates/vite my-first-code-app",
+          "terminalId": "Create your first Code App"
+        }
+      ]
+    },
+    {
+      "id": "scene-mpqj01on-84f2",
+      "title": "Change working directory and install dependencies",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "cd my-first-code-app",
+          "terminalId": "Create your first Code App"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm install",
+          "terminalId": "Create your first Code App"
+        }
+      ]
+    },
+    {
+      "id": "scene-mpqj01on-84f3",
+      "title": "Initialize the Code App",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx power-apps init --display-name \"My First Code App\" --environment-id {ENVIRONMENT_ID}",
+          "terminalId": "Create your first Code App"
+        }
+      ]
+    },
+    {
+      "id": "scene-mpsfxts4-0pc2",
+      "title": "Test the template app locally",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "cd my-first-code-app",
+          "terminalId": "Test the app locally"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm run dev",
+          "terminalId": "Test the app locally"
+        }
+      ]
+    },
+    {
+      "id": "scene-mpsfxrta-3h0t",
+      "title": "Update code of Code App",
+      "moves": [
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/01 - Update base app/App.tsx",
+          "dest": "my-first-code-app/src/App.tsx",
+          "overwrite": true
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/01 - Update base app/App.css",
+          "dest": "my-first-code-app/src/App.css",
+          "overwrite": true
+        }
+      ]
+    },
+    {
+      "id": "scene-mpsfxouc-0voa",
+      "title": "Add context support",
+      "moves": [
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/02 - Add context/App.tsx",
+          "dest": "my-first-code-app/src/App.tsx",
+          "overwrite": true
+        }
+      ]
+    },
+    {
+      "id": "scene-mptvf3p6-r6y9",
+      "title": "Environment variable support",
+      "description": "Use of the \"@envvar:\" synthax to utilize environment variables.\nUpdate the connection ID with your actual one.",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "pac code add-data-source --apiid shared_sharepointonline --connectionId \"dbe5675d1a4f478397199faa6eb28ccf\" --dataset \"@envvar:new_SharePointSiteURL\" --table \"@envvar:new_SharePointListTitle\"",
+          "terminalId": "Create your first Code App",
+          "autoExecute": true
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/03 - Use environment vars/App.tsx",
+          "dest": "my-first-code-app/src/App.tsx",
+          "overwrite": true
+        }
+      ]
+    },
+    {
+      "id": "scene-mpsfy2qc-ovwl",
+      "title": "Add Dataverse support",
+      "description": "TODO: remove in favor of the PPL connectors",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "pac code add-data-source -a dataverse -t systemuser",
+          "autoExecute": true,
+          "terminalId": "Create your first Code App"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/04 - Add Dataverse support/App.tsx",
+          "dest": "my-first-code-app/src/App.tsx",
+          "overwrite": true
+        }
+      ]
+    },
+    {
+      "id": "scene-mpsj1efo-qe47",
+      "title": "Add PPL connector",
+      "description": "Replace the connection ID in the command, copy it from the connections page on PPL.",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "pac code add-data-source -a \"shared_approvals\" -c \"6bb0d099753947be9d2c4be5d255c51c\"",
+          "autoExecute": true,
+          "terminalId": "Create your first Code App"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/05 - Add PPL connector/App.tsx",
+          "dest": "my-first-code-app/src/App.tsx",
+          "overwrite": true
+        }
+      ]
+    },
+    {
+      "id": "scene-mptvfj2v-hoyt",
+      "title": "Add Power Automate flows - TODO",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx power-apps list-flows",
+          "terminalId": "Create your first Code App",
+          "autoExecute": true
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx power-apps add-flow --flow-id <flow-id>",
+          "terminalId": "Create your first Code App",
+          "autoExecute": false
+        }
+      ]
+    },
+    {
+      "id": "scene-mpsnst9e-qgtb",
+      "title": "Add Copilot Studio support - TODO",
+      "description": "Replace the connection ID in the command, copy it from the connections page on PPL.\nTODO: remove in favor of the Power Automate flows",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "pac code add-data-source -a \"shared_microsoftcopilotstudio\" -c \"ff67e6bf3702454fba3a9aed1e3ec876\"",
+          "autoExecute": true,
+          "terminalId": "Create your first Code App"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/06 - Add Copilot Studio/App.tsx",
+          "dest": "my-first-code-app/src/App.tsx",
+          "overwrite": true
+        }
+      ]
+    },
+    {
+      "id": "scene-mps1m23n-x0r8",
+      "title": "Build your code app",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm run build",
+          "terminalId": "Build your code app"
+        }
+      ]
+    },
+    {
+      "id": "scene-mps1mrnk-q37g",
+      "title": "Deploy your code app",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "terminalId": "Deploy your code app",
+          "command": "npx power-apps push"
+        }
+      ]
+    }
+  ]
+}
