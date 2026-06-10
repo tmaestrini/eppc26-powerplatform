@@ -28,11 +28,18 @@
     {
       "id": "scene-mpqj01on-84f1",
       "title": "Clone existing code app template",
+      "description": "pac auth create  --tenant 15016ba4-ae9d-4b8c-90dd-54a31ca950b7 --name \"Tobias dev env\" --environment c1610760-e716-e272-96b4-632ed1be1e4d    ",
       "moves": [
         {
           "action": "executeTerminalCommand",
-          "command": "npx degit github:microsoft/PowerAppsCodeApps/templates/vite {CODE_APP_FOLDER_NAME}",
-          "terminalId": "Create your first Code App"
+          "command": "npx degit github:microsoft/PowerAppsCodeApps/templates/vite \"{CODE_APP_FOLDER_NAME}\"",
+          "terminalId": "Create your first Code App",
+          "autoExecute": true
+        },
+        {
+          "action": "executeTerminalCommand",
+          "terminalId": "Create your first Code App",
+          "command": "pac env select --environment {ENVIRONMENT_ID}"
         }
       ]
     },
@@ -42,7 +49,7 @@
       "moves": [
         {
           "action": "executeTerminalCommand",
-          "command": "cd {CODE_APP_FOLDER_NAME}",
+          "command": "cd \"{CODE_APP_FOLDER_NAME}\"",
           "terminalId": "Create your first Code App"
         },
         {
@@ -55,11 +62,10 @@
     {
       "id": "scene-mpqj01on-84f3",
       "title": "Initialize the Code App",
-      "description": "TODO: pac code init --displayName \"My first code app\"",
       "moves": [
         {
           "action": "executeTerminalCommand",
-          "command": "npx power-apps init --display-name \"My First Code App\" --environment-id {ENVIRONMENT_ID}",
+          "command": "pac code init --displayName \"My First Code App\"",
           "terminalId": "Create your first Code App"
         }
       ]
@@ -70,7 +76,7 @@
       "moves": [
         {
           "action": "executeTerminalCommand",
-          "command": "cd {CODE_APP_FOLDER_NAME}",
+          "command": "cd \"{CODE_APP_FOLDER_NAME}\"",
           "terminalId": "Test the app locally"
         },
         {
@@ -87,13 +93,13 @@
         {
           "action": "copy",
           "path": ".demo/file-contents/01 - Update base app/App.tsx",
-          "dest": "my-first-code-app/src/App.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
           "overwrite": true
         },
         {
           "action": "copy",
           "path": ".demo/file-contents/01 - Update base app/App.css",
-          "dest": "my-first-code-app/src/App.css",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.css",
           "overwrite": true
         }
       ]
@@ -105,7 +111,7 @@
         {
           "action": "copy",
           "path": ".demo/file-contents/02 - Add context/App.tsx",
-          "dest": "my-first-code-app/src/App.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
           "overwrite": true
         }
       ]
@@ -117,14 +123,14 @@
       "moves": [
         {
           "action": "executeTerminalCommand",
-          "command": "pac code add-data-source --apiid shared_sharepointonline --connectionId \"{SHAREPOINT_CONNECTION_ID}\" --dataset \"@envvar:{SHAREPOINT_URL_ENV_VAR}\" --table \"@envvar:{SHAREPOINT_LIST_NAME_ENV_VAR}\"",
+          "command": "pac code add-data-source --apiid shared_sharepointonline --connectionId \"{SHAREPOINT_CONNECTION_ID}\" --dataset \"@envvar:{SHAREPOINT_URL_ENV_VAR}\" --table \"@envvar:{SHAREPOINT_LIST_NAME_ENV_VAR}\" --environment {ENVIRONMENT_ID}",
           "terminalId": "Create your first Code App",
           "autoExecute": true
         },
         {
           "action": "copy",
           "path": ".demo/file-contents/03 - Use environment vars/App.tsx",
-          "dest": "my-first-code-app/src/App.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
           "overwrite": true
         }
       ]
@@ -143,10 +149,11 @@
         {
           "action": "copy",
           "path": ".demo/file-contents/04 - Add Dataverse support/App.tsx",
-          "dest": "my-first-code-app/src/App.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
           "overwrite": true
         }
-      ]
+      ],
+      "disabled": true
     },
     {
       "id": "scene-mpsj1efo-qe47",
@@ -162,7 +169,7 @@
         {
           "action": "copy",
           "path": ".demo/file-contents/05 - Add PPL connector/App.tsx",
-          "dest": "my-first-code-app/src/App.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
           "overwrite": true
         }
       ]
@@ -199,10 +206,11 @@
         {
           "action": "copy",
           "path": ".demo/file-contents/06 - Add Copilot Studio/App.tsx",
-          "dest": "my-first-code-app/src/App.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
           "overwrite": true
         }
-      ]
+      ],
+      "disabled": true
     },
     {
       "id": "scene-mps1m23n-x0r8",
