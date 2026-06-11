@@ -1,6 +1,6 @@
 {
   "$schema": "https://demotime.show/demo-time.schema.json",
-  "title": "Taming the chance – or: Start testing your Power Apps with Playwright (… and Copilot)",
+  "title": "Taming the chance – Initializing",
   "description": "A comprehensive walkthrough of building a testing scenario for Power Apps using Playwright, TypeScript and some AI assist",
   "version": 3,
   "scenes": [
@@ -18,11 +18,6 @@
           "action": "executeTerminalCommand",
           "command": "npm --version",
           "terminalId": "Verify Prerequisites"
-        },
-        {
-          "action": "executeTerminalCommand",
-          "command": "pac help",
-          "terminalId": "Verify Prerequisites"
         }
       ]
     },
@@ -33,8 +28,15 @@
       "moves": [
         {
           "action": "executeTerminalCommand",
+          "command": "mkdir \"{TEST_SETUP_FOLDER_NAME}\"",
+          "terminalId": "Testing setup",
+          "autoExecute": true
+        },
+        {
+          "action": "executeTerminalCommand",
           "command": "cd \"{TEST_SETUP_FOLDER_NAME}\" && npm init playwright@latest",
-          "terminalId": "Testing setup"
+          "terminalId": "Testing setup",
+          "autoExecute": true
         }
       ]
     },
@@ -46,32 +48,37 @@
         {
           "action": "executeTerminalCommand",
           "command": "npm install -D @playwright/test",
-          "terminalId": "Testing setup (tweak)",
-          "autoExecute": false
+          "terminalId": "Testing setup",
+          "autoExecute": true
         },
         {
           "action": "executeTerminalCommand",
           "command": "npx playwright install",
-          "terminalId": "Testing setup (tweak)",
-          "autoExecute": false
+          "terminalId": "Testing setup",
+          "autoExecute": true
         },
         {
           "action": "executeTerminalCommand",
           "command": "npm install --save-dev @types/node",
-          "terminalId": "Testing setup (tweak)",
-          "autoExecute": false
+          "terminalId": "Testing setup",
+          "autoExecute": true
         },
         {
           "action": "executeTerminalCommand",
-          "command": "npm install --save-dev dotenv",
-          "terminalId": "Testing setup (tweak)",
-          "autoExecute": false
+          "command": "npm install dotenv && npm install --save-dev dotenv-cli",
+          "terminalId": "Testing setup",
+          "autoExecute": true
         },
         {
           "action": "executeTerminalCommand",
-          "command": "npm install --save-dev dotenv-cli",
-          "terminalId": "Testing setup (tweak)",
-          "autoExecute": false
+          "terminalId": "Testing setup",
+          "autoExecute": true
+        },
+        {
+          "action": "replace",
+          "contentPath": ".demo/file-contents/Setup/package.json",
+          "startPlaceholder": "\"scripts\": {},",
+          "path": "{TEST_SETUP_FOLDER_NAME}/package.json"
         }
       ]
     },
@@ -83,7 +90,13 @@
         {
           "action": "executeTerminalCommand",
           "command": "npx degit microsoft/power-platform-playwright-samples/packages/power-platform-playwright-toolkit/src toolkit",
-          "terminalId": "Testing setup (tweak)",
+          "terminalId": "Testing setup",
+          "autoExecute": false
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm install playwright-ms-auth",
+          "terminalId": "Testing setup",
           "autoExecute": false
         }
       ]
@@ -111,6 +124,11 @@
       "description": "Implement the stuff that is relevant for MFA setup",
       "moves": [
         {
+          "action": "executeTerminalCommand",
+          "terminalId": "Testing setup",
+          "command": "npm install otpauth"
+        },
+        {
           "action": "copy",
           "path": ".demo/file-contents/Setup/scripts/setupOTP.mjs",
           "dest": "{TEST_SETUP_FOLDER_NAME}/scripts/setupOTP.mjs"
@@ -133,9 +151,9 @@
       "description": "Create new Playwright projects in playwright.config.ts",
       "moves": [
         {
-          "action": "copy",
-          "path": ".demo/file-contents/Setup/playwright.config.ts",
-          "dest": "{TEST_SETUP_FOLDER_NAME}/playwright.config.ts"
+          "action": "replace",
+          "path": "{TEST_SETUP_FOLDER_NAME}/playwright.config.ts",
+          "contentPath": ".demo/file-contents/Setup/playwright.config.ts"
         },
         {
           "action": "copy",
