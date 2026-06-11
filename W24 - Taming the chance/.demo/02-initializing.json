@@ -1,0 +1,165 @@
+{
+  "$schema": "https://demotime.show/demo-time.schema.json",
+  "title": "Taming the chance – or: Start testing your Power Apps with Playwright (… and Copilot)",
+  "description": "A comprehensive walkthrough of building a testing scenario for Power Apps using Playwright, TypeScript and some AI assist",
+  "version": 3,
+  "scenes": [
+    {
+      "id": "scene-mq9zace1-eb55",
+      "title": "Verify Prerequisites",
+      "description": "Node & NPM version",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "node --version",
+          "terminalId": "Verify Prerequisites"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm --version",
+          "terminalId": "Verify Prerequisites"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "pac help",
+          "terminalId": "Verify Prerequisites"
+        }
+      ]
+    },
+    {
+      "id": "scene-mqa0f8d8-kbrk",
+      "title": "Initialize Playwright ",
+      "description": "Initialize a new project or add Playwright to an existing one",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm init playwright@latest",
+          "terminalId": "Testing setup"
+        }
+      ]
+    },
+    {
+      "id": "scene-mqa0psdm-u3if",
+      "title": "Tweak the testing setup (1)",
+      "description": "Playwright specific capabilities and Common TS modules",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm install -D @playwright/test",
+          "terminalId": "Testing setup (tweak)",
+          "autoExecute": false
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx playwright install",
+          "terminalId": "Testing setup (tweak)",
+          "autoExecute": false
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm install --save-dev @types/node",
+          "terminalId": "Testing setup (tweak)",
+          "autoExecute": false
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm install --save-dev dotenv",
+          "terminalId": "Testing setup (tweak)",
+          "autoExecute": false
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm install --save-dev dotenv-cli",
+          "terminalId": "Testing setup (tweak)",
+          "autoExecute": false
+        }
+      ]
+    },
+    {
+      "id": "demo-mqa0uc5e-yi8a",
+      "title": "Tweak the testing setup (2)",
+      "description": "Integrate the «Testing Toolkit»\n\n🤓 This is our recommendation – follow us to make your life easier!\u000b\u000bUsing the «Testing Toolkit» saves a lot of time because it offers all necessary stuff in order to interact with the apps (grids, forms, navigation, properties, …) which you can fully rely on in your tests.",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx degit microsoft/power-platform-playwright-samples/packages/power-platform-playwright-toolkit/src toolkit",
+          "terminalId": "Testing setup (tweak)",
+          "autoExecute": false
+        }
+      ]
+    },
+    {
+      "id": "demo-mqa0x0ou-8ejx",
+      "title": "Tweak the testing setup (3)",
+      "description": "Create a local .env file to setup the relevant infos for the tests",
+      "moves": [
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/.env",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/.env"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/.env.example",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/.env.example"
+        }
+      ]
+    },
+    {
+      "id": "demo-mqa1ntkb-3q7q",
+      "title": "Tweak the testing setup (4)",
+      "description": "Implement the stuff that is relevant for MFA setup",
+      "moves": [
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/scripts/setupOTP.mjs",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/scripts/setupOTP.mjs"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/tests/mfa.setup.ts",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/tests/mfa.setup.ts"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/helpers/setup-login.ts",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/helpers/setup-login.ts"
+        }
+      ]
+    },
+    {
+      "id": "demo-mqa1u3a8-a5da",
+      "title": "Tweak the testing setup (5)",
+      "description": "Create new Playwright projects in playwright.config.ts",
+      "moves": [
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/playwright.config.ts",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/playwright.config.ts"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/MFA Setup/tests/mfa.setup.ts",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/tests/mfa.setup.ts"
+        }
+      ]
+    },
+    {
+      "id": "demo-mqa1zu3m-a3bp",
+      "title": "Tweak the testing setup (6)",
+      "description": "Extend the initial scaffold (according this recommendation)",
+      "moves": [
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/fixtures/canvas.fixtures.ts",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/fixtures/canvas.fixtures.ts"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/fixtures/mda.fixtures.ts",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/fixtures/mda.fixtures.ts"
+        }
+      ]
+    }
+  ]
+}
