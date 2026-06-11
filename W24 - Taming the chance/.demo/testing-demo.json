@@ -1,0 +1,374 @@
+{
+  "$schema": "https://demotime.show/demo-time.schema.json",
+  "title": "Taming the chance – or: Start testing your Power Apps with Playwright (… and Copilot)",
+  "description": "A comprehensive walkthrough of building a testing scenario for Power Apps using Playwright, TypeScript and some AI assist",
+  "version": 3,
+  "scenes": [
+    {
+      "id": "scene-mq9zace1-eb55",
+      "title": "Verify Prerequisites",
+      "description": "Node & NPM version",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "node --version",
+          "terminalId": "Verify Prerequisites"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm --version",
+          "terminalId": "Verify Prerequisites"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "pac help",
+          "terminalId": "Verify Prerequisites"
+        }
+      ]
+    },
+    {
+      "id": "scene-mqa0f8d8-kbrk",
+      "title": "Initialize Playwright ",
+      "description": "Initialize a new project or add Playwright to an existing one",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm init playwright@latest",
+          "terminalId": "Testing setup"
+        }
+      ]
+    },
+    {
+      "id": "scene-mqa0psdm-u3if",
+      "title": "Tweak the testing setup (1)",
+      "description": "Playwright specific capabilities and Common TS modules",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm install -D @playwright/test",
+          "terminalId": "Testing setup (tweak)",
+          "autoExecute": false
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx playwright install",
+          "terminalId": "Testing setup (tweak)",
+          "autoExecute": false
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm install --save-dev @types/node",
+          "terminalId": "Testing setup (tweak)",
+          "autoExecute": false
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm install --save-dev dotenv",
+          "terminalId": "Testing setup (tweak)",
+          "autoExecute": false
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm install --save-dev dotenv-cli",
+          "terminalId": "Testing setup (tweak)",
+          "autoExecute": false
+        }
+      ]
+    },
+    {
+      "id": "demo-mqa0uc5e-yi8a",
+      "title": "Tweak the testing setup (2)",
+      "description": "Integrate the «Testing Toolkit»\n\n🤓 This is our recommendation – follow us to make your life easier!\u000b\u000bUsing the «Testing Toolkit» saves a lot of time because it offers all necessary stuff in order to interact with the apps (grids, forms, navigation, properties, …) which you can fully rely on in your tests.",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx degit microsoft/power-platform-playwright-samples/packages/power-platform-playwright-toolkit/src toolkit",
+          "terminalId": "Testing setup (tweak)",
+          "autoExecute": false
+        }
+      ]
+    },
+    {
+      "id": "demo-mqa0x0ou-8ejx",
+      "title": "Tweak the testing setup (3)",
+      "description": "Create a local .env file to setup the relevant infos for the tests",
+      "moves": [
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/.env",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/.env"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/.env.example",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/.env.example"
+        }
+      ]
+    },
+    {
+      "id": "demo-mqa1ntkb-3q7q",
+      "title": "Tweak the testing setup (4)",
+      "description": "Implement the stuff that is relevant for MFA setup",
+      "moves": [
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/scripts/setupOTP.mjs",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/scripts/setupOTP.mjs"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/tests/mfa.setup.ts",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/tests/mfa.setup.ts"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/helpers/setup-login.ts",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/helpers/setup-login.ts"
+        }
+      ]
+    },
+    {
+      "id": "demo-mqa1u3a8-a5da",
+      "title": "Tweak the testing setup (5)",
+      "description": "Create new Playwright projects in playwright.config.ts",
+      "moves": [
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/playwright.config.ts",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/playwright.config.ts"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/MFA Setup/tests/mfa.setup.ts",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/tests/mfa.setup.ts"
+        }
+      ]
+    },
+    {
+      "id": "demo-mqa1zu3m-a3bp",
+      "title": "Tweak the testing setup (6)",
+      "description": "Extend the initial scaffold (according this recommendation)",
+      "moves": [
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/fixtures/canvas.fixtures.ts",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/fixtures/canvas.fixtures.ts"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/fixtures/mda.fixtures.ts",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/fixtures/mda.fixtures.ts"
+        }
+      ]
+    },
+    {
+      "id": "scene-mpsfxrta-3h0t",
+      "title": "Update code of Code App",
+      "moves": [
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/01 - Update base app/App.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
+          "overwrite": true
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/01 - Update base app/App.css",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.css",
+          "overwrite": true
+        }
+      ]
+    },
+    {
+      "id": "scene-mpqj01on-84f1",
+      "title": "Clone existing code app template",
+      "description": "pac auth create  --tenant 15016ba4-ae9d-4b8c-90dd-54a31ca950b7 --name \"Tobias dev env\" --environment c1610760-e716-e272-96b4-632ed1be1e4d    ",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx degit github:microsoft/PowerAppsCodeApps/templates/vite \"{CODE_APP_FOLDER_NAME}\"",
+          "terminalId": "Create your first Code App",
+          "autoExecute": true
+        },
+        {
+          "action": "executeTerminalCommand",
+          "terminalId": "Create your first Code App",
+          "command": "pac env select --environment {ENVIRONMENT_ID}"
+        }
+      ]
+    },
+    {
+      "id": "scene-mpqj01on-84f2",
+      "title": "Change working directory and install dependencies",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "cd \"{CODE_APP_FOLDER_NAME}\"",
+          "terminalId": "Create your first Code App"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm install",
+          "terminalId": "Create your first Code App"
+        }
+      ]
+    },
+    {
+      "id": "scene-mpqj01on-84f3",
+      "title": "Initialize the Code App",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "pac code init --displayName \"My First Code App\"",
+          "terminalId": "Create your first Code App"
+        }
+      ]
+    },
+    {
+      "id": "scene-mpsfxts4-0pc2",
+      "title": "Test the template app locally",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "cd \"{CODE_APP_FOLDER_NAME}\"",
+          "terminalId": "Test the app locally"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm run dev",
+          "terminalId": "Test the app locally"
+        }
+      ]
+    },
+    {
+      "id": "scene-mpsfxouc-0voa",
+      "title": "Add context support",
+      "moves": [
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/02 - Add context/App.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
+          "overwrite": true
+        }
+      ]
+    },
+    {
+      "id": "scene-mptvf3p6-r6y9",
+      "title": "Environment variable support",
+      "description": "Use of the \"@envvar:\" synthax to utilize environment variables.\nUpdate the connection ID with your actual one.",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "pac code add-data-source --apiid shared_sharepointonline --connectionId \"{SHAREPOINT_CONNECTION_ID}\" --dataset \"@envvar:{SHAREPOINT_URL_ENV_VAR}\" --table \"@envvar:{SHAREPOINT_LIST_NAME_ENV_VAR}\" --environment {ENVIRONMENT_ID}",
+          "terminalId": "Create your first Code App",
+          "autoExecute": true
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/03 - Use environment vars/App.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
+          "overwrite": true
+        }
+      ]
+    },
+    {
+      "id": "scene-mpsfy2qc-ovwl",
+      "title": "Add Dataverse support",
+      "description": "TODO: remove in favor of the PPL connectors",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "pac code add-data-source -a dataverse -t systemuser",
+          "autoExecute": true,
+          "terminalId": "Create your first Code App"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/04 - Add Dataverse support/App.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
+          "overwrite": true
+        }
+      ],
+      "disabled": true
+    },
+    {
+      "id": "scene-mpsj1efo-qe47",
+      "title": "Add PPL connector",
+      "description": "Replace the connection ID in the command, copy it from the connections page on PPL.",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "pac code add-data-source -a \"shared_approvals\" -c \"{APPROVALS_CONNECTION_ID}\"",
+          "autoExecute": true,
+          "terminalId": "Create your first Code App"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/05 - Add PPL connector/App.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
+          "overwrite": true
+        }
+      ]
+    },
+    {
+      "id": "scene-mptvfj2v-hoyt",
+      "title": "Add Power Automate flows - TODO",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx power-apps list-flows",
+          "terminalId": "Create your first Code App",
+          "autoExecute": true
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx power-apps add-flow --flow-id <flow-id>",
+          "terminalId": "Create your first Code App",
+          "autoExecute": false
+        }
+      ]
+    },
+    {
+      "id": "scene-mpsnst9e-qgtb",
+      "title": "Add Copilot Studio support - TODO",
+      "description": "Replace the connection ID in the command, copy it from the connections page on PPL.\nTODO: remove in favor of the Power Automate flows",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "pac code add-data-source -a \"shared_microsoftcopilotstudio\" -c \"ff67e6bf3702454fba3a9aed1e3ec876\"",
+          "autoExecute": true,
+          "terminalId": "Create your first Code App"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/06 - Add Copilot Studio/App.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
+          "overwrite": true
+        }
+      ],
+      "disabled": true
+    },
+    {
+      "id": "scene-mps1m23n-x0r8",
+      "title": "Build your code app",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm run build",
+          "terminalId": "Build your code app"
+        }
+      ]
+    },
+    {
+      "id": "scene-mps1mrnk-q37g",
+      "title": "Deploy your code app",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "terminalId": "Deploy your code app",
+          "command": "npx power-apps push"
+        }
+      ]
+    }
+  ]
+}
