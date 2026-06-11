@@ -5,19 +5,24 @@
   "version": 3,
   "scenes": [
     {
+      "id": "scene-mqa5ovl3-15jj",
+      "title": " (Init: Copy the tests (TODO)",
+      "moves": []
+    },
+    {
       "id": "scene-mpsfxts4-0pc2",
       "title": "Test: PAC app",
       "moves": [
         {
           "action": "executeTerminalCommand",
-          "command": "cd \"{CODE_APP_FOLDER_NAME}\" && npx playwright test --project=pac",
+          "command": "cd {TEST_SETUP_FOLDER_NAME} && npx playwright test --project=pac",
           "terminalId": "Test PAC"
         },
         {
           "action": "executeTerminalCommand",
           "command": "npx playwright show-report",
           "terminalId": "Test PAC",
-          "autoExecute": false
+          "autoExecute": true
         }
       ]
     },
@@ -27,7 +32,7 @@
       "moves": [
         {
           "action": "executeTerminalCommand",
-          "command": "npx playwright test --project=mda",
+          "command": "cd {TEST_SETUP_FOLDER_NAME} && npx playwright test --project=mda",
           "terminalId": "Test MDA"
         },
         {
@@ -45,11 +50,11 @@
       "moves": [
         {
           "action": "open",
-          "path": "\"{TEST_SETUP_FOLDER_NAME}\"/fixtures/canvas.fixtures.ts"
+          "path": "{TEST_SETUP_FOLDER_NAME}/fixtures/canvas.fixtures.ts"
         },
         {
           "action": "executeTerminalCommand",
-          "command": "npx playwright test --project=canvas",
+          "command": "cd {TEST_SETUP_FOLDER_NAME} && npx playwright test --project=canvas",
           "terminalId": "Test Canvas",
           "autoExecute": false
         },
