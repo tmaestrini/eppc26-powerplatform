@@ -1,0 +1,8 @@
+  "scripts": {
+    "test": "npx playwright test --reporter=html",
+    "test:ui": "npx playwright test --ui --reporter=html",
+    "test:debug": "npx playwright test --debug --reporter=html",
+    "test:record": "dotenv -- npx playwright codegen \"$M365_URL\"",
+    "report": "npx playwright show-report",
+    "generate:otp": "node ./scripts/setupOTP.mjs \"$OTP_SECRET\""
+  },
