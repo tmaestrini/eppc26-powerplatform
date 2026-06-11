@@ -1,0 +1,65 @@
+{
+  "$schema": "https://demotime.show/demo-time.schema.json",
+  "title": "Taming the chance – Testing",
+  "description": "A comprehensive walkthrough of building a testing scenario for Power Apps using Playwright, TypeScript and some AI assist",
+  "version": 3,
+  "scenes": [
+    {
+      "id": "scene-mpsfxts4-0pc2",
+      "title": "Test: PAC app",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "cd \"{CODE_APP_FOLDER_NAME}\" && npx playwright test --project=pac",
+          "terminalId": "Test PAC"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx playwright show-report",
+          "terminalId": "Test PAC",
+          "autoExecute": false
+        }
+      ]
+    },
+    {
+      "id": "demo-mqa3355a-dasl",
+      "title": "Test: MDA app",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx playwright test --project=mda",
+          "terminalId": "Test MDA"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx playwright show-report",
+          "terminalId": "Test MDA",
+          "autoExecute": false
+        }
+      ]
+    },
+    {
+      "id": "demo-mqa34tsn-23ao",
+      "title": "Test: Canvas app",
+      "description": "👉 for the sake of this demo, the implementation of canvas.fixtures.ts contains a ConcreteCanvasAppPage (containing «special» methods)",
+      "moves": [
+        {
+          "action": "open",
+          "path": "\"{TEST_SETUP_FOLDER_NAME}\"/fixtures/canvas.fixtures.ts"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx playwright test --project=canvas",
+          "terminalId": "Test Canvas",
+          "autoExecute": false
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx playwright show-report",
+          "terminalId": "Test Canvas",
+          "autoExecute": false
+        }
+      ]
+    }
+  ]
+}
