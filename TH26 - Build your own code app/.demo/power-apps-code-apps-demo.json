@@ -135,26 +135,6 @@
       ]
     },
     {
-      "id": "scene-mpsfy2qc-ovwl",
-      "title": "Add Dataverse support",
-      "description": "TODO: remove in favor of the PPL connectors",
-      "moves": [
-        {
-          "action": "executeTerminalCommand",
-          "command": "pac code add-data-source -a dataverse -t systemuser",
-          "autoExecute": true,
-          "terminalId": "Create your first Code App"
-        },
-        {
-          "action": "copy",
-          "path": ".demo/file-contents/04 - Add Dataverse support/App.tsx",
-          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
-          "overwrite": true
-        }
-      ],
-      "disabled": true
-    },
-    {
       "id": "scene-mpsj1efo-qe47",
       "title": "Add PPL connector",
       "description": "Replace the connection ID in the command, copy it from the connections page on PPL.",
@@ -175,7 +155,7 @@
     },
     {
       "id": "scene-mptvfj2v-hoyt",
-      "title": "Add Power Automate flows - TODO",
+      "title": "Add Power Automate flows",
       "moves": [
         {
           "action": "executeTerminalCommand",
@@ -188,28 +168,14 @@
           "command": "npx power-apps add-flow --flow-id <flow-id>",
           "terminalId": "Create your first Code App",
           "autoExecute": false
-        }
-      ]
-    },
-    {
-      "id": "scene-mpsnst9e-qgtb",
-      "title": "Add Copilot Studio support - TODO",
-      "description": "Replace the connection ID in the command, copy it from the connections page on PPL.\nTODO: remove in favor of the Power Automate flows",
-      "moves": [
-        {
-          "action": "executeTerminalCommand",
-          "command": "pac code add-data-source -a \"shared_microsoftcopilotstudio\" -c \"ff67e6bf3702454fba3a9aed1e3ec876\"",
-          "autoExecute": true,
-          "terminalId": "Create your first Code App"
         },
         {
           "action": "copy",
-          "path": ".demo/file-contents/06 - Add Copilot Studio/App.tsx",
+          "path": ".demo/file-contents/05 - Add flow support/App.tsx",
           "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
           "overwrite": true
         }
-      ],
-      "disabled": true
+      ]
     },
     {
       "id": "scene-mps1m23n-x0r8",
