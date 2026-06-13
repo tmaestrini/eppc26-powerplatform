@@ -1,0 +1,47 @@
+{
+  "$schema": "https://demotime.show/demo-time.schema.json",
+  "title": "Taming the chance – Testing",
+  "description": "A comprehensive walkthrough of building a testing scenario for Power Apps using Playwright, TypeScript and some AI assist",
+  "version": 3,
+  "scenes": [
+    {
+      "id": "scene-mqca0aax-lc6p",
+      "title": "Init: Add Test Agents definitions",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "cd {TEST_SETUP_FOLDER_NAME}",
+          "terminalId": "Agentic testing"
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "npx playwright init-agents --loop=vscode",
+          "terminalId": "Agentic testing"
+        }
+      ]
+    },
+    {
+      "id": "scene-mqcgtxi6-olbu",
+      "title": "Call the Agent #1: Create Test Spec & Definitions",
+      "moves": [
+        {
+          "action": "newCopilotChat"
+        },
+        {
+          "action": "agentCopilotChat",
+          "message": "Explore the app's interface on https://apps.powerapps.com/play/e/c1610760-e716-e272-96b4-632ed1be1e4d/a/850c9c5b-f4e8-45a1-ab0c-e81b0f16ed9b?tenantId=15016ba4-ae9d-4b8c-90dd-54a31ca950b7&.\nBefore logging in, use the 'setup' test project configuration. \n\n1. Create a test plan for basic operations in /specs.\n2. Then, generate test in /tests."
+        }
+      ]
+    },
+    {
+      "id": "demo-mqcgvvtt-qiji",
+      "title": "Call the Agent #2: Fix the broken tests",
+      "moves": [
+        {
+          "action": "agentCopilotChat",
+          "message": "Fix the tests that were failing."
+        }
+      ]
+    }
+  ]
+}
