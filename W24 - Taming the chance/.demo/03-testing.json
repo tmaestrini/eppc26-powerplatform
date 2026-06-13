@@ -6,7 +6,7 @@
   "scenes": [
     {
       "id": "scene-mqa5ovl3-15jj",
-      "title": " (Init: Copy the tests (TODO)",
+      "title": "Init: Copy the tests",
       "moves": [
         {
           "action": "executeTerminalCommand",
