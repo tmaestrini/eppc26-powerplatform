@@ -16,7 +16,7 @@
         },
         {
           "action": "executeTerminalCommand",
-          "command": "npm --version",
+          "command": "npx playwright --version",
           "terminalId": "Verify Prerequisites"
         }
       ]
