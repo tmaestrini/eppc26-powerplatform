@@ -86,13 +86,13 @@
           "action": "executeTerminalCommand",
           "command": "npx degit microsoft/power-platform-playwright-samples/packages/power-platform-playwright-toolkit/src toolkit",
           "terminalId": "Testing setup",
-          "autoExecute": false
+          "autoExecute": true
         },
         {
           "action": "executeTerminalCommand",
           "command": "npm install playwright-ms-auth",
           "terminalId": "Testing setup",
-          "autoExecute": false
+          "autoExecute": true
         }
       ]
     },
