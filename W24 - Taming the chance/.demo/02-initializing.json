@@ -70,11 +70,6 @@
           "autoExecute": true
         },
         {
-          "action": "executeTerminalCommand",
-          "terminalId": "Testing setup",
-          "autoExecute": true
-        },
-        {
           "action": "replace",
           "contentPath": ".demo/file-contents/Setup/package.json",
           "startPlaceholder": "\"scripts\": {},",
@@ -153,7 +148,9 @@
         {
           "action": "replace",
           "path": "{TEST_SETUP_FOLDER_NAME}/playwright.config.ts",
-          "contentPath": ".demo/file-contents/Setup/playwright.config.ts"
+          "contentPath": ".demo/file-contents/Setup/playwright.config.ts",
+          "position": "1",
+          "highlightWholeLine": true
         },
         {
           "action": "copy",
