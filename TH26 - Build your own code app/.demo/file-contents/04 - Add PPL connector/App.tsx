@@ -1,7 +1,5 @@
 import { getContext } from '@microsoft/power-apps/app';
-import { SamplelistService } from './generated';
-import { SystemusersService } from './generated/services/SystemusersService';
-import { StandardapprovalsService } from './generated/services/StandardapprovalsService';
+import { SamplelistService, StandardapprovalsService } from './generated';
 import './App.css'
 import { useState } from 'react';
 
@@ -19,18 +17,6 @@ function App() {
 
     const userPrincipalName = ctx.user.userPrincipalName;
     setUpn(userPrincipalName);
-
-    const userId = ctx.user.objectId;
-
-    if (userId !== undefined) {
-      const userRecordResult = await SystemusersService.getAll({ filter: `azureactivedirectoryobjectid eq '${userId}'` });
-      if (userRecordResult.success && userRecordResult.data.length > 0) {
-        const userRecord = userRecordResult.data[0];
-        setUserTitle(userRecord.title);
-      } else {
-        console.error("Failed to retrieve user record:", userRecordResult.error);
-      }
-    }
   }
 
   async function listSPOItems() {
@@ -64,11 +50,10 @@ function App() {
   return (
     <div className="app-container">
       <h1>Welcome {fullName !== undefined ? fullName : 'to your first Code App!'}</h1>
-      {userTitle && <h2>Your title: {userTitle}</h2>}
       <p>This is a very basic code app 😎</p>
       <div className="button-container">
         <button onClick={getUserInfo}>Load user info</button>
-        <button onClick={listSPOItems}>List SharePoint Online items</button>
+        <button onClick={listSPOItems} disabled={upn === undefined}>List SharePoint Online items</button>
         <button onClick={createApproval} disabled={upn === undefined}>Create approval</button>
       </div>
       {spoItems !== undefined && spoItems.length > 0 &&

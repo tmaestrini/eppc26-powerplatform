@@ -147,7 +147,7 @@
         },
         {
           "action": "copy",
-          "path": ".demo/file-contents/05 - Add PPL connector/App.tsx",
+          "path": ".demo/file-contents/04 - Add PPL connector/App.tsx",
           "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
           "overwrite": true
         }
@@ -184,7 +184,7 @@
         {
           "action": "executeTerminalCommand",
           "command": "npm run build",
-          "terminalId": "Build your code app"
+          "terminalId": "Create your first Code App"
         }
       ]
     },
@@ -194,7 +194,7 @@
       "moves": [
         {
           "action": "executeTerminalCommand",
-          "terminalId": "Deploy your code app",
+          "terminalId": "Create your first Code App",
           "command": "npx power-apps push"
         }
       ]

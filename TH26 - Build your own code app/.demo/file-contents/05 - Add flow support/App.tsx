@@ -1,6 +1,5 @@
 import { getContext } from '@microsoft/power-apps/app';
-import { SampleflowService, SamplelistService } from './generated';
-import { StandardapprovalsService } from './generated/services/StandardapprovalsService';
+import { SampleflowService, SamplelistService, StandardapprovalsService } from './generated';
 import './App.css'
 import { useState } from 'react';
 
@@ -69,7 +68,7 @@ function App() {
       <p>This is a very basic code app 😎</p>
       <div className="button-container">
         <button onClick={getUserInfo}>Load user info</button>
-        <button onClick={listSPOItems}>List SharePoint Online items</button>
+        <button onClick={listSPOItems} disabled={upn === undefined}>List SharePoint Online items</button>
         <button onClick={createApproval} disabled={upn === undefined}>Create approval</button>
         <button onClick={runFlow} disabled={upn === undefined}>Run flow</button>
       </div>

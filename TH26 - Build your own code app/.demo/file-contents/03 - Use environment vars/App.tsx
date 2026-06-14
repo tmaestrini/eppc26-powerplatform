@@ -32,7 +32,7 @@ function App() {
       <p>This is a very basic code app 😎</p>
       <div className="button-container">
         <button onClick={getUserInfo}>Load user info</button>
-        <button onClick={listSPOItems}>List SharePoint Online items</button>
+        <button onClick={listSPOItems} disabled={fullName === undefined}>List SharePoint Online items</button>
       </div>
       {spoItems !== undefined && spoItems.length > 0 && 
       <div>
