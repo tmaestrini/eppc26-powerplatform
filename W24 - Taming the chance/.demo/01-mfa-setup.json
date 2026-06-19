@@ -1,0 +1,62 @@
+{
+  "$schema": "https://demotime.show/demo-time.schema.json",
+  "title": "Taming the chance – MFA Setup",
+  "description": "A comprehensive walkthrough of building a testing scenario for Power Apps using Playwright, TypeScript and some AI assist",
+  "version": 3,
+  "scenes": [
+    {
+      "id": "scene-mql9y0l8-l84z",
+      "title": "TOTP Instructions by Guido",
+      "description": "Create a MFA-enabled testing setup by configuring a dedicated test  account in order to make it MFA-ready using a TOTP («Time-based One-Time Password»).",
+      "moves": [
+        {
+          "action": "openWebsite",
+          "url": "https://iamguidozam.blog/2025/12/17/automate-microsoft-mfa-login-using-playwright",
+          "openInVSCode": true
+        }
+      ]
+    },
+    {
+      "id": "scene-mqla21ke-8xag",
+      "title": "Create a helper method",
+      "description": "helper method login() to generate the TOTP (token)",
+      "moves": [
+        {
+          "action": "highlight",
+          "path": ".demo/file-contents/Setup/helpers/setup-login.ts",
+          "position": "4:10",
+          "highlightWholeLine": true,
+          "zoom": 4
+        }
+      ]
+    },
+    {
+      "id": "demo-mqla31ul-jw8e",
+      "title": "Create an MFA setup test",
+      "description": "Create a mfa.setup.ts file in your tests",
+      "moves": [
+        {
+          "action": "highlight",
+          "path": ".demo/file-contents/Setup/tests/mfa.setup.ts",
+          "position": "12:20",
+          "highlightWholeLine": true,
+          "zoom": 4
+        }
+      ]
+    },
+    {
+      "id": "demo-mqla3so7-odcw",
+      "title": "MFA setup test as dependency",
+      "description": "Add the mfa.setup.ts file as a dependency of every test",
+      "moves": [
+        {
+          "action": "highlight",
+          "path": ".demo/file-contents/Setup/playwright.config.ts",
+          "position": "35:35",
+          "highlightWholeLine": true,
+          "zoom": 4
+        }
+      ]
+    }
+  ]
+}
