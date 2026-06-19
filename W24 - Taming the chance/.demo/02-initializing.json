@@ -1,6 +1,6 @@
 {
   "$schema": "https://demotime.show/demo-time.schema.json",
-  "title": "Taming the chance – Initializing",
+  "title": "Taming the chance – Initializing Playwright",
   "description": "A comprehensive walkthrough of building a testing scenario for Power Apps using Playwright, TypeScript and some AI assist",
   "version": 3,
   "scenes": [
