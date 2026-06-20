@@ -195,7 +195,8 @@
         {
           "action": "executeTerminalCommand",
           "terminalId": "Create your first Code App",
-          "command": "npx power-apps push"
+          "command": "npx power-apps push",
+          "autoExecute": true
         }
       ]
     },
