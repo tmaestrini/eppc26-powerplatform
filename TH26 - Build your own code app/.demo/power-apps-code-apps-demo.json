@@ -198,6 +198,65 @@
           "command": "npx power-apps push"
         }
       ]
+    },
+    {
+      "id": "scene-mqg68nb9-rdn1",
+      "title": "Add Graph API support",
+      "moves": [
+        {
+          "action": "executeTerminalCommand",
+          "command": "npm i @azure/msal-react @azure/msal-browser @microsoft/microsoft-graph-client",
+          "terminalId": "Create your first Code App"
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/06 - Add Graph API/main.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/main.tsx",
+          "overwrite": true
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/06 - Add Graph API/App.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
+          "overwrite": true
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/06 - Add Graph API/vite.config.ts",
+          "dest": "{CODE_APP_FOLDER_NAME}/vite.config.ts",
+          "overwrite": true
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/06 - Add Graph API/components/LoginHandler.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/components/LoginHandler.tsx",
+          "overwrite": true
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/06 - Add Graph API/components/GraphDataFetcher.tsx",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/components/GraphDataFetcher.tsx",
+          "overwrite": true
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/06 - Add Graph API/auth/authConfig.ts",
+          "dest": "{CODE_APP_FOLDER_NAME}/src/auth/authConfig.ts",
+          "overwrite": true
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/06 - Add Graph API/plugins/powerApps.ts",
+          "dest": "{CODE_APP_FOLDER_NAME}/plugins/powerApps.ts",
+          "overwrite": true
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/06 - Add Graph API/.env",
+          "dest": "{CODE_APP_FOLDER_NAME}/.env",
+          "overwrite": true
+        }
+      ]
     }
   ]
 }
