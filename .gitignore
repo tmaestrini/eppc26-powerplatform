@@ -434,3 +434,6 @@ TH26 - Build your own code app/my-first-code-app/
 TH26 - Build your own code app/.demo/variables.json
 TH26 - Build your own code app/.demo/variables.json.old
 TH26 - Build your own code app/.demo/variables.json.dev
+
+*.env
+*variables.json
