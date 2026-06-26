@@ -124,7 +124,15 @@
           "action": "executeTerminalCommand",
           "command": "pac code add-data-source --apiid shared_sharepointonline --connectionId \"{SHAREPOINT_CONNECTION_ID}\" --dataset \"@envvar:{SHAREPOINT_URL_ENV_VAR}\" --table \"@envvar:{SHAREPOINT_LIST_NAME_ENV_VAR}\" --environment {ENVIRONMENT_ID}",
           "terminalId": "Create your first Code App",
-          "autoExecute": true
+          "autoExecute": true,
+          "disabled": true
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "pac code add-data-source --apiid shared_sharepointonline --connectionRef \"{SHAREPOINT_CONNECTION_REFERENCE_NAME}\" --dataset \"@envvar:{SHAREPOINT_URL_ENV_VAR}\" --table \"@envvar:{SHAREPOINT_LIST_NAME_ENV_VAR}\" --environment {ENVIRONMENT_ID}",
+          "terminalId": "Create your first Code App",
+          "autoExecute": true,
+          "disabled": false
         },
         {
           "action": "copy",
@@ -142,6 +150,13 @@
         {
           "action": "executeTerminalCommand",
           "command": "pac code add-data-source -a \"shared_approvals\" -c \"{APPROVALS_CONNECTION_ID}\"",
+          "autoExecute": true,
+          "terminalId": "Create your first Code App",
+          "disabled": true
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "pac code add-data-source -a \"shared_approvals\" --connectionRef \"{APPROVALS_CONNECTION_REFERENCE_NAME}\"",
           "autoExecute": true,
           "terminalId": "Create your first Code App"
         },
@@ -195,67 +210,8 @@
         {
           "action": "executeTerminalCommand",
           "terminalId": "Create your first Code App",
-          "command": "npx power-apps push",
+          "command": "npx power-apps push --solution-id {SOLUTION_ID}",
           "autoExecute": true
-        }
-      ]
-    },
-    {
-      "id": "scene-mqg68nb9-rdn1",
-      "title": "Add Graph API support",
-      "moves": [
-        {
-          "action": "executeTerminalCommand",
-          "command": "npm i @azure/msal-react @azure/msal-browser @microsoft/microsoft-graph-client",
-          "terminalId": "Create your first Code App"
-        },
-        {
-          "action": "copy",
-          "path": ".demo/file-contents/06 - Add Graph API/main.tsx",
-          "dest": "{CODE_APP_FOLDER_NAME}/src/main.tsx",
-          "overwrite": true
-        },
-        {
-          "action": "copy",
-          "path": ".demo/file-contents/06 - Add Graph API/App.tsx",
-          "dest": "{CODE_APP_FOLDER_NAME}/src/App.tsx",
-          "overwrite": true
-        },
-        {
-          "action": "copy",
-          "path": ".demo/file-contents/06 - Add Graph API/vite.config.ts",
-          "dest": "{CODE_APP_FOLDER_NAME}/vite.config.ts",
-          "overwrite": true
-        },
-        {
-          "action": "copy",
-          "path": ".demo/file-contents/06 - Add Graph API/components/LoginHandler.tsx",
-          "dest": "{CODE_APP_FOLDER_NAME}/src/components/LoginHandler.tsx",
-          "overwrite": true
-        },
-        {
-          "action": "copy",
-          "path": ".demo/file-contents/06 - Add Graph API/components/GraphDataFetcher.tsx",
-          "dest": "{CODE_APP_FOLDER_NAME}/src/components/GraphDataFetcher.tsx",
-          "overwrite": true
-        },
-        {
-          "action": "copy",
-          "path": ".demo/file-contents/06 - Add Graph API/auth/authConfig.ts",
-          "dest": "{CODE_APP_FOLDER_NAME}/src/auth/authConfig.ts",
-          "overwrite": true
-        },
-        {
-          "action": "copy",
-          "path": ".demo/file-contents/06 - Add Graph API/plugins/powerApps.ts",
-          "dest": "{CODE_APP_FOLDER_NAME}/plugins/powerApps.ts",
-          "overwrite": true
-        },
-        {
-          "action": "copy",
-          "path": ".demo/file-contents/06 - Add Graph API/.env",
-          "dest": "{CODE_APP_FOLDER_NAME}/.env",
-          "overwrite": true
         }
       ]
     }

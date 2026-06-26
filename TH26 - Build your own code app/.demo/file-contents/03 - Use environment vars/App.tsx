@@ -28,11 +28,11 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Welcome {fullName !== undefined ? fullName : 'to your first Code App!'}</h1>
+      <h1 data-control-name="welcome-message">Welcome {fullName !== undefined ? fullName : 'to your first Code App!'}</h1>
       <p>This is a very basic code app 😎</p>
       <div className="button-container">
-        <button onClick={getUserInfo}>Load user info</button>
-        <button onClick={listSPOItems} disabled={fullName === undefined}>List SharePoint Online items</button>
+        <button onClick={getUserInfo} data-control-name="load-user-info">Load user info</button>
+        <button onClick={listSPOItems} disabled={fullName === undefined} data-control-name="list-spo-items">List SharePoint Online items</button>
       </div>
       {spoItems !== undefined && spoItems.length > 0 && 
       <div>

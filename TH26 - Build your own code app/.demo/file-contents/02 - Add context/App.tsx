@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Welcome {fullName !== undefined ? fullName : 'to your first Code App!'}</h1>
+      <h1 data-control-name="welcome-message">Welcome {fullName !== undefined ? fullName : 'to your first Code App!'}</h1>
       <p>This is a very basic code app 😎</p>
       <button onClick={getUserInfo}>Load user info</button>
       <footer className="app-footer">
