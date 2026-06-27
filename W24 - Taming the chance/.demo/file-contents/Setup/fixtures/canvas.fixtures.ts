@@ -1,19 +1,29 @@
 // fixtures/mda.fixtures.tis
 import { FrameLocator, Locator, Page } from 'playwright-core';
-import { createPowerAppFixture, AppType, AppLaunchMode, CanvasAppPage } from '../toolkit';
+import { createPowerAppFixture, AppType, AppLaunchMode, CanvasAppRuntimePage } from '../toolkit';
 
-export class ConcreteCanvasAppPage extends CanvasAppPage {
+export class ConcreteCanvasAppPage extends CanvasAppRuntimePage {
   private readonly frame: FrameLocator;
 
   constructor(page: Page) {
     super(page);
-    this.frame = page.frameLocator('iframe[name="fullscreen-app-host"]');
+    // NOTE: getCanvasFrame() returns a FrameLocator that actually is NOT working (as pointing to the wrong iframe; we need to correct it here); 
+    this.frame = this.getCanvasFrame('iframe[name="fullscreen-app-host"]');
   }
 
-  override getControl(options: { name: string }): Locator {
+  public getControl(options: { name: string }): Locator {
     return this.frame.locator(`[data-control-name="${options.name}"]`);
   }
 
+  clickControl(options: { name: string }): Promise<void> {
+    return this.getControl(options).click();
+  }
+
+  async fillInputField(controlName: string, value: string): Promise<void> {
+    const inputField = this.getInputField(controlName);
+    await inputField.fill(value);
+  }
+  
   getLabel(controlName: string): Locator {
     return this.getControl({name: controlName}).locator('pre.fui-Text');
   }
