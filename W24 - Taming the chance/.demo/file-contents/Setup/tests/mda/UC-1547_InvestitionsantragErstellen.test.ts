@@ -48,7 +48,7 @@ test.describe('[UC-1547] Investitionsantrag erstellen', () => {
     // Aktiven Antrag löschen, damit er nicht in der Listenansicht bleibt
     console.log('Lösche erstellten Antrag über Grid-Toolbar');
   };
-  
+
   test('TC-01: Neues Formular öffnet sich mit aktiver Stufe Initialisierung', async ({ mdaApp }) => {
     // Klick auf "Neu erstellen"
     await mdaApp.page.getByRole('menuitem', { name: 'Neu erstellen' }).click();
@@ -63,6 +63,7 @@ test.describe('[UC-1547] Investitionsantrag erstellen', () => {
 
   test('TC-02: Speichern ohne Pflichtfelder zeigt Validierungsfehler', async ({ mdaApp }) => {
     await mdaApp.page.getByRole('menuitem', { name: 'Neu erstellen' }).first().click();
+    // would be: await mdaApp.clickCommandButton('Neu erstellen');
     await mdaApp.page.getByRole('menuitem', { name: 'Speichern' }).first().click();
 
     const errorMessages = await Promise.all([
