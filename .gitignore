@@ -1,2 +1,4 @@
 *.env
 *variables.json
+variables.json.*
+.DS_Store
