@@ -154,8 +154,9 @@
         },
         {
           "action": "copy",
-          "path": ".demo/file-contents/MFA Setup/tests/mfa.setup.ts",
-          "dest": "{TEST_SETUP_FOLDER_NAME}/tests/mfa.setup.ts"
+          "path": ".demo/file-contents/Setup/tests/mfa.setup.ts",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/tests/mfa.setup.ts",
+          "overwrite": true
         }
       ]
     },
@@ -167,12 +168,20 @@
         {
           "action": "copy",
           "path": ".demo/file-contents/Setup/fixtures/canvas.fixtures.ts",
-          "dest": "{TEST_SETUP_FOLDER_NAME}/fixtures/canvas.fixtures.ts"
+          "dest": "{TEST_SETUP_FOLDER_NAME}/fixtures/canvas.fixtures.ts",
+          "overwrite": true
         },
         {
           "action": "copy",
           "path": ".demo/file-contents/Setup/fixtures/mda.fixtures.ts",
-          "dest": "{TEST_SETUP_FOLDER_NAME}/fixtures/mda.fixtures.ts"
+          "dest": "{TEST_SETUP_FOLDER_NAME}/fixtures/mda.fixtures.ts",
+          "overwrite": true
+        },
+        {
+          "action": "copy",
+          "path": ".demo/file-contents/Setup/fixtures/codeapp.fixtures.ts",
+          "dest": "{TEST_SETUP_FOLDER_NAME}/fixtures/codeapp.fixtures.ts",
+          "overwrite": true
         }
       ]
     }

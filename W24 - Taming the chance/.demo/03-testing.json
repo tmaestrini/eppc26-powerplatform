@@ -14,7 +14,13 @@
         },
         {
           "action": "executeTerminalCommand",
-          "command": "cp -r .demo/file-contents/Setup/tests/mda {TEST_SETUP_FOLDER_NAME}/tests"
+          "command": "cp -r .demo/file-contents/Setup/tests/mda {TEST_SETUP_FOLDER_NAME}/tests",
+          "autoExecute": true
+        },
+        {
+          "action": "executeTerminalCommand",
+          "command": "cp -r .demo/file-contents/Setup/tests/pac {TEST_SETUP_FOLDER_NAME}/tests",
+          "autoExecute": true
         }
       ]
     },
@@ -25,13 +31,14 @@
         {
           "action": "executeTerminalCommand",
           "command": "cd {TEST_SETUP_FOLDER_NAME} && npx playwright test --project=pac",
-          "terminalId": "Test PAC"
+          "terminalId": "Test PAC",
+          "autoExecute": true
         },
         {
           "action": "executeTerminalCommand",
           "command": "npx playwright show-report",
           "terminalId": "Test PAC",
-          "autoExecute": true
+          "autoExecute": false
         }
       ]
     },
@@ -41,7 +48,7 @@
       "moves": [
         {
           "action": "executeTerminalCommand",
-          "command": "cd {TEST_SETUP_FOLDER_NAME} && npx playwright test --project=mda",
+          "command": "cd {TEST_SETUP_FOLDER_NAME} && npx playwright test --project=model-driven",
           "terminalId": "Test MDA"
         },
         {
@@ -65,7 +72,7 @@
           "action": "executeTerminalCommand",
           "command": "cd {TEST_SETUP_FOLDER_NAME} && npx playwright test --project=canvas",
           "terminalId": "Test Canvas",
-          "autoExecute": false
+          "autoExecute": true
         },
         {
           "action": "executeTerminalCommand",
