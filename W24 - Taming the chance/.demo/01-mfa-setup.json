@@ -29,7 +29,8 @@
           "zoom": 0,
           "position": "11:17"
         }
-      ]
+      ],
+      "disabled": true
     },
     {
       "id": "demo-mr0rk0l9-jrmr",
@@ -85,7 +86,8 @@
           "highlightWholeLine": true,
           "zoom": 4
         }
-      ]
+      ],
+      "disabled": true
     }
   ]
 }
