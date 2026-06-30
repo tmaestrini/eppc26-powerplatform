@@ -14,7 +14,8 @@
           "url": "https://iamguidozam.blog/2025/12/17/automate-microsoft-mfa-login-using-playwright",
           "openInVSCode": true
         }
-      ]
+      ],
+      "disabled": true
     },
     {
       "id": "scene-mqla21ke-8xag",
@@ -32,13 +33,27 @@
     },
     {
       "id": "demo-mr0rk0l9-jrmr",
-      "title": "1.3 - Create a helper method",
+      "title": "1.3 - Create a helper method - login function",
       "description": "helper method login() to generate the TOTP (token)",
       "moves": [
         {
           "action": "highlight",
           "path": ".demo/file-contents/Setup/helpers/setup-login.ts",
           "position": "4:10",
+          "highlightWholeLine": true,
+          "zoom": 0
+        }
+      ]
+    },
+    {
+      "id": "demo-mr11rzzl-1c17",
+      "title": "1.3 - Create a helper method - core",
+      "description": "helper method login() to generate the TOTP (token)",
+      "moves": [
+        {
+          "action": "highlight",
+          "path": ".demo/file-contents/Setup/helpers/setup-login.ts",
+          "position": "54:63",
           "highlightWholeLine": true,
           "zoom": 0
         }
