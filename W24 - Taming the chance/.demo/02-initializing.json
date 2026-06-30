@@ -6,7 +6,7 @@
   "scenes": [
     {
       "id": "scene-mq9zace1-eb55",
-      "title": "Verify Prerequisites",
+      "title": "2.1 - Verify Prerequisites",
       "description": "Node & NPM version",
       "moves": [
         {
@@ -23,7 +23,7 @@
     },
     {
       "id": "scene-mqa0f8d8-kbrk",
-      "title": "Initialize Playwright ",
+      "title": "2.2 - Initialize Playwright ",
       "description": "Initialize a new project or add Playwright to an existing one",
       "moves": [
         {
@@ -42,7 +42,7 @@
     },
     {
       "id": "scene-mqa0psdm-u3if",
-      "title": "Tweak the testing setup (1)",
+      "title": "2.3 - Tweak 1 - Add additional packages and scripts",
       "description": "Playwright specific capabilities and Common TS modules",
       "moves": [
         {
@@ -79,7 +79,7 @@
     },
     {
       "id": "demo-mqa0uc5e-yi8a",
-      "title": "Tweak the testing setup (2)",
+      "title": "2.4 - Tweak 2 - Add testing toolkit",
       "description": "Integrate the «Testing Toolkit»\n\n🤓 This is our recommendation – follow us to make your life easier!\u000b\u000bUsing the «Testing Toolkit» saves a lot of time because it offers all necessary stuff in order to interact with the apps (grids, forms, navigation, properties, …) which you can fully rely on in your tests.",
       "moves": [
         {
@@ -98,7 +98,7 @@
     },
     {
       "id": "demo-mqa0x0ou-8ejx",
-      "title": "Tweak the testing setup (3)",
+      "title": "2.5 - Tweak 3 - Add .env file",
       "description": "Create a local .env file to setup the relevant infos for the tests",
       "moves": [
         {
@@ -115,7 +115,7 @@
     },
     {
       "id": "demo-mqa1ntkb-3q7q",
-      "title": "Tweak the testing setup (4)",
+      "title": "2.6 - Tweak 4 - Add MFA setup",
       "description": "Implement the stuff that is relevant for MFA setup",
       "moves": [
         {
@@ -142,7 +142,7 @@
     },
     {
       "id": "demo-mqa1u3a8-a5da",
-      "title": "Tweak the testing setup (5)",
+      "title": "2.7 - Tweak 5 - Add Playwright projects and reporter",
       "description": "Create new Playwright projects in playwright.config.ts",
       "moves": [
         {
@@ -162,7 +162,7 @@
     },
     {
       "id": "demo-mqa1zu3m-a3bp",
-      "title": "Tweak the testing setup (6)",
+      "title": "2.8 - Tweak 6 - Implement test fixtures",
       "description": "Extend the initial scaffold (according this recommendation)",
       "moves": [
         {

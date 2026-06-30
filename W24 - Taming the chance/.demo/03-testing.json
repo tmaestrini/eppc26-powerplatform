@@ -6,7 +6,7 @@
   "scenes": [
     {
       "id": "scene-mqa5ovl3-15jj",
-      "title": "Init: Copy the tests",
+      "title": "3.1 - Init: Copy the tests",
       "moves": [
         {
           "action": "executeTerminalCommand",
@@ -26,7 +26,7 @@
     },
     {
       "id": "scene-mpsfxts4-0pc2",
-      "title": "Test: PAC app",
+      "title": "3.2 - Test: PAC app",
       "moves": [
         {
           "action": "executeTerminalCommand",
@@ -44,7 +44,7 @@
     },
     {
       "id": "demo-mqa3355a-dasl",
-      "title": "Test: MDA app",
+      "title": "3.3 - Test: MDA app",
       "moves": [
         {
           "action": "executeTerminalCommand",
@@ -61,7 +61,7 @@
     },
     {
       "id": "demo-mqa34tsn-23ao",
-      "title": "Test: Canvas app",
+      "title": "3.4 - Test: Canvas app",
       "description": "👉 for the sake of this demo, the implementation of canvas.fixtures.ts contains a ConcreteCanvasAppPage (containing «special» methods)",
       "moves": [
         {

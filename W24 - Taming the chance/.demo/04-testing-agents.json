@@ -6,7 +6,7 @@
   "scenes": [
     {
       "id": "scene-mqca0aax-lc6p",
-      "title": "Init: Add Test Agents definitions",
+      "title": "4.1 - Init: Add Test Agents definitions",
       "moves": [
         {
           "action": "executeTerminalCommand",
@@ -22,7 +22,7 @@
     },
     {
       "id": "scene-mqcgtxi6-olbu",
-      "title": "Call the Agent #1: Create Test Spec & Definitions",
+      "title": "4.2 - Call the Agent #1: Create Test Spec & Definitions",
       "moves": [
         {
           "action": "newCopilotChat"
@@ -35,7 +35,7 @@
     },
     {
       "id": "demo-mqcgvvtt-qiji",
-      "title": "Call the Agent #2: Fix the broken tests",
+      "title": "4.3 - Call the Agent #2: Fix the broken tests",
       "moves": [
         {
           "action": "agentCopilotChat",

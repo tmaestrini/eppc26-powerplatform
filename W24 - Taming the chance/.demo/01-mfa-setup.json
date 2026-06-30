@@ -6,7 +6,7 @@
   "scenes": [
     {
       "id": "scene-mql9y0l8-l84z",
-      "title": "TOTP Instructions by Guido",
+      "title": "1.1 - TOTP Instructions by Guido",
       "description": "Create a MFA-enabled testing setup by configuring a dedicated test  account in order to make it MFA-ready using a TOTP («Time-based One-Time Password»).",
       "moves": [
         {
@@ -18,7 +18,21 @@
     },
     {
       "id": "scene-mqla21ke-8xag",
-      "title": "Create a helper method",
+      "title": "1.2 - Create a script file",
+      "description": "Create the setupOTP.mjs file",
+      "moves": [
+        {
+          "action": "highlight",
+          "path": ".demo/file-contents/Setup/scripts/setupOTP.mjs",
+          "highlightWholeLine": true,
+          "zoom": 0,
+          "position": "11:17"
+        }
+      ]
+    },
+    {
+      "id": "demo-mr0rk0l9-jrmr",
+      "title": "1.3 - Create a helper method",
       "description": "helper method login() to generate the TOTP (token)",
       "moves": [
         {
@@ -26,13 +40,13 @@
           "path": ".demo/file-contents/Setup/helpers/setup-login.ts",
           "position": "4:10",
           "highlightWholeLine": true,
-          "zoom": 4
+          "zoom": 0
         }
       ]
     },
     {
       "id": "demo-mqla31ul-jw8e",
-      "title": "Create an MFA setup test",
+      "title": "1.4 - Create an MFA setup test",
       "description": "Create a mfa.setup.ts file in your tests",
       "moves": [
         {
@@ -40,13 +54,13 @@
           "path": ".demo/file-contents/Setup/tests/mfa.setup.ts",
           "position": "12:20",
           "highlightWholeLine": true,
-          "zoom": 4
+          "zoom": 0
         }
       ]
     },
     {
       "id": "demo-mqla3so7-odcw",
-      "title": "MFA setup test as dependency",
+      "title": "1.5 - MFA setup test as dependency",
       "description": "Add the mfa.setup.ts file as a dependency of every test",
       "moves": [
         {
